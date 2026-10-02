@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        int8_t counts[26] = {0};
+
+        for (size_t i = 0; i < s.length(); ++i) {
+            counts[s[i] - 'a']++;
+            counts[t[i] - 'a']--;
+        }
+
+        for (int count : counts) {
+            if (count != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+};
